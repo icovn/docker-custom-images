@@ -1,0 +1,6 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - D:/_projects/docker-logstash-kafka/logstash-tutorial-dataset.log 
+output.logstash:
+  hosts: ["localhost:5044"]

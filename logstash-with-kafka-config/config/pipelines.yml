@@ -1,0 +1,6 @@
+- pipeline.id: kafka-apache
+  path.config: "/usr/share/logstash/pipeline/kafka-apache-pipeline.conf"
+- pipeline.id: kafka-application
+  path.config: "/usr/share/logstash/pipeline/kafka-application-pipeline.conf"
+- pipeline.id: kafka-nginx
+  path.config: "/usr/share/logstash/pipeline/kafka-nginx-pipeline.conf"
