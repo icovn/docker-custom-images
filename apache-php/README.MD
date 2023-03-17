@@ -9,6 +9,6 @@ Bản Apache PHP có cài thêm:
 
 ## command
 ```shell
-docker build -t icovn/base_php_apache:7.4.33_1 .
-docker push icovn/base_php_apache:7.4.33_1
+docker build -t icovn/base_php_apache:7.4.33_2 .
+docker push icovn/base_php_apache:7.4.33_2
 ```
