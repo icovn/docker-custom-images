@@ -17,7 +17,9 @@ RUN apt-get update && apt-get install -y \
 	libzip-dev \
 	exiftool \
     sudo \
+    telnet \
     unzip \
+    vim \
     zip \
 	wget \
  && rm -rf /var/lib/apt/lists/*
@@ -78,7 +80,11 @@ RUN apt update && apt install supervisor -y
 # 10. Setup cron
 RUN apt update && apt install -y cron
 
-# 11. Copy config and script
+# 11. Composer
+RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
+RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+# 12. Copy config and script
 COPY ./scripts/supervisor_worker.conf /etc/supervisor/conf.d/worker.conf
 RUN cat /etc/supervisor/conf.d/worker.conf
 
@@ -90,5 +96,8 @@ RUN cat /etc/cron.d/cron_job
 COPY ./scripts/start.sh /start.sh
 RUN chmod 755 /start.sh
 RUN chmod u+x /start.sh
+
+COPY ./scripts/cronicle_config.json /opt/cronicle/conf/cronicle_config.json
+COPY ./scripts/php.ini /usr/local/etc/php/php.ini
 
 CMD ["/bin/bash", "/start.sh"]

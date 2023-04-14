@@ -31,7 +31,7 @@ echo "Sleep 10s waiting for cronicle to start"
 sleep 10s
 
 echo "Replace config"
-cp /var/www/html/scripts/cronicle_config.json /opt/cronicle/conf/config.json
+cp /opt/cronicle/conf/cronicle_config.json /opt/cronicle/conf/config.json
 apply_secret
 
 echo "Restart cronicle"
